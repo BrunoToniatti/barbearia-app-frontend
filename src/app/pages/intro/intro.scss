@@ -3,7 +3,6 @@
   position: relative;
   min-height: 100vh;
   min-height: 100dvh; // Dynamic viewport height para mobile
-  overflow: hidden;
   background: linear-gradient(135deg, #1a1611 0%, #2d2318 40%, #3d2f1f 80%, #1e1a14 100%);
   display: flex;
   align-items: center;
@@ -353,9 +352,17 @@
 // Responsive Design
 @media (max-width: 768px) {
   .barber-intro {
+    height: 100vh;
+    padding: 15px 10px;
+    overflow-y: auto;
+  }
+
+  .content-wrapper {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     min-height: 100vh;
-    min-height: calc(100vh - 60px); // Reduz altura para compensar barras do navegador
-    padding: 20px 10px;
   }
 
   .logo-text {
