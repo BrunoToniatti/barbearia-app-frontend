@@ -32,7 +32,7 @@ export class Appointments implements OnInit {
     this.initializeData();
     this.setTodayAsDefault();
     this.filterAppointments();
-    
+
     // Fechar dropdown quando clicar fora
     document.addEventListener('click', (event) => {
       const target = event.target as HTMLElement;

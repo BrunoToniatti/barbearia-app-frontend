@@ -20,7 +20,7 @@
         <div class="logo-ornament">◆</div>
         <div class="logo-subtitle">Barbear Shop</div>
       </div>
-      
+
       <div class="profile-section">
         <div class="profile-container" (click)="toggleProfileMenu()">
           <div class="profile-info">
@@ -29,14 +29,14 @@
               <span class="barber-role">Profissional</span>
             </div>
             <div class="profile-avatar">
-              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face"
                    alt="Perfil do Barbeiro" class="avatar-image">
             </div>
             <div class="dropdown-arrow" [class.rotated]="isProfileMenuOpen">
               ▼
             </div>
           </div>
-          
+
           <!-- Dropdown Menu -->
           <div class="profile-dropdown" [class.open]="isProfileMenuOpen">
             <div class="dropdown-item" (click)="openSettings($event)">
