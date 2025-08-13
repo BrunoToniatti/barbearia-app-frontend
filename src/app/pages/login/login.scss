@@ -1,7 +1,8 @@
 // Login Styles - Barber Theme (Elegant & Classic)
 .barber-login {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh; // Dynamic viewport height para mobile
   overflow: hidden;
   background: linear-gradient(135deg, #1a1611 0%, #2d2318 40%, #3d2f1f 80%);
   display: flex;
@@ -556,6 +557,12 @@
 
 // Responsive Design
 @media (max-width: 768px) {
+  .barber-login {
+    min-height: 100vh;
+    min-height: calc(100vh - 60px); // Reduz altura para compensar barras do navegador
+    padding: 20px 10px;
+  }
+
   .login-wrapper {
     max-width: 320px;
     padding: 10px;
@@ -597,27 +604,33 @@
 }
 
 @media (max-height: 700px) {
+  .barber-login {
+    min-height: auto;
+    padding: 15px 10px;
+  }
+
   .login-card {
-    padding: 20px;
+    padding: 15px;
+    transform: scale(0.95);
   }
 
   .login-header {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   .brand-logo {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   .logo-text {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .login-form {
-    gap: 15px;
+    gap: 12px;
   }
 
   .login-footer {
-    margin-top: 15px;
+    margin-top: 12px;
   }
 }

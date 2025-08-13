@@ -4,7 +4,7 @@
 
 ### 1. Build Settings
 - **Build command:** `npm install --force && npm run build:prod`
-- **Publish directory:** `dist/danilo-frontend`
+- **Publish directory:** `dist/danilo-frontend/browser`
 - **Node version:** `20`
 
 ### 2. Environment Variables (se necessário)

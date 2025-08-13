@@ -1,7 +1,8 @@
 // Barber Intro Styles - Elegant & Classic
 .barber-intro {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh; // Dynamic viewport height para mobile
   overflow: hidden;
   background: linear-gradient(135deg, #1a1611 0%, #2d2318 40%, #3d2f1f 80%, #1e1a14 100%);
   display: flex;
@@ -351,6 +352,12 @@
 
 // Responsive Design
 @media (max-width: 768px) {
+  .barber-intro {
+    min-height: 100vh;
+    min-height: calc(100vh - 60px); // Reduz altura para compensar barras do navegador
+    padding: 20px 10px;
+  }
+
   .logo-text {
     font-size: 3.5rem;
   }
@@ -369,5 +376,17 @@
 
   .vintage-frame {
     inset: 10px;
+  }
+}
+
+// Para dispositivos com altura muito pequena
+@media (max-height: 700px) {
+  .barber-intro {
+    min-height: auto;
+    padding: 15px 10px;
+  }
+  
+  .intro-content {
+    transform: scale(0.9);
   }
 }
