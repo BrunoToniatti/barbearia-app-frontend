@@ -1,4 +1,21 @@
 <div class="barber-appointments">
+  <!-- PWA Install Prompt -->
+  @if (showInstallPrompt) {
+    <div class="install-prompt">
+      <div class="install-content">
+        <div class="install-icon">📱</div>
+        <div class="install-text">
+          <h3>Instalar App</h3>
+          <p>Adicione J&B Barbearia à sua tela inicial para acesso rápido</p>
+        </div>
+        <div class="install-actions">
+          <button class="install-btn" (click)="installApp()">Instalar</button>
+          <button class="dismiss-btn" (click)="dismissInstallPrompt()">×</button>
+        </div>
+      </div>
+    </div>
+  }
+
   <!-- Elegant Background -->
   <div class="elegant-bg">
     <div class="gradient-light light-1"></div>

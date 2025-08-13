@@ -1,18 +1,152 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>DaniloFrontend</title>
+  <title>J&B Barbear Shop - Agendamentos</title>
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Essential PWA Meta Tags -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="J&B Barbearia">
+  <meta name="application-name" content="J&B Barbearia">
+
+  <!-- Status Bar Colors for Different Platforms -->
+  <meta name="theme-color" content="#D4AF37" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#B8860B" media="(prefers-color-scheme: dark)">
+  <meta name="msapplication-TileColor" content="#D4AF37">
+  <meta name="msapplication-navbutton-color" content="#D4AF37">
+
+  <!-- Android Chrome status bar -->
+  <meta name="theme-color" content="#D4AF37">
+
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#D4AF37">
+
+  <!-- iOS Safari status bar -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- SEO & Description -->
+  <meta name="description" content="Aplicativo para gerenciamento de agendamentos da J&B Barbear Shop - A melhor barbearia da cidade">
+  <meta name="keywords" content="barbearia, agendamentos, corte masculino, barba, J&B">
+  <meta name="author" content="J&B Barbear Shop">
+
+  <!-- Icons -->
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon-72x72.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/icon-72x72.png">
+  <link rel="mask-icon" href="icons/icon-192x192.png" color="#D4AF37">
+
+  <!-- Splash Screen iOS -->
+  <link rel="apple-touch-startup-image" href="icons/icon-512x512.png">
+
+  <!-- Prevent zoom on inputs (iOS) -->
+  <meta name="format-detection" content="telephone=no">
 
   <!-- Google Fonts - Elegant Barber Shop Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Cinzel:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;family=Cinzel:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <!-- Preload critical resources -->
+  <link rel="preload" href="styles.scss" as="style">
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+    <!-- Loading Screen -->
+    <div id="initial-loader" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1611 0%, #2d2318 40%, #3d2f1f 80%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      color: #D4AF37;
+      font-family: 'Cinzel', serif;
+    ">
+      <div style="
+        font-size: 3rem;
+        font-weight: 900;
+        background: linear-gradient(145deg, #D4AF37, #F4D03F, #B8860B);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        letter-spacing: 0.2em;
+        margin-bottom: 20px;
+      ">J&B</div>
+      <div style="
+        font-size: 1rem;
+        color: rgba(245, 245, 220, 0.8);
+        font-weight: 300;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+      ">Barbear Shop</div>
+      <div style="
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(212, 175, 55, 0.3);
+        border-top: 3px solid #D4AF37;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      "></div>
+      <style>
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      </style>
+    </div>
+  </app-root>
+
+  <noscript>
+    <div style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #1a1611;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #D4AF37;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+    ">
+      <div>
+        <h1>J&B Barbear Shop</h1>
+        <p>Por favor, habilite o JavaScript para usar este aplicativo.</p>
+      </div>
+    </div>
+  </noscript>
+
+  <script>
+    // Remove loading screen quando app carregar
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        const loader = document.getElementById('initial-loader');
+        if (loader) {
+          loader.style.opacity = '0';
+          loader.style.transition = 'opacity 0.5s ease';
+          setTimeout(() => loader.remove(), 500);
+        }
+      }, 1500);
+    });
+  </script>
 </body>
 </html>

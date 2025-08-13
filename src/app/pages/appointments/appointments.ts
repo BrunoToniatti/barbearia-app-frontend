@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PwaUpdateService } from '../../services/pwa-update.service';
+import { PwaInstallService } from '../../services/pwa-install.service';
+import { Subscription } from 'rxjs';
 
 interface Appointment {
   id: number;
@@ -19,19 +22,29 @@ interface Appointment {
   templateUrl: './appointments.html',
   styleUrl: './appointments.scss'
 })
-export class Appointments implements OnInit {
+export class Appointments implements OnInit, OnDestroy {
   selectedDate: string = '';
   selectedStatus: string = '';
   appointments: Appointment[] = [];
   filteredAppointments: Appointment[] = [];
   isProfileMenuOpen: boolean = false;
 
-  constructor(private router: Router) {}
+  // PWA related properties
+  showInstallPrompt: boolean = false;
+  isAppInstalled: boolean = false;
+  private subscriptions: Subscription[] = [];
+
+  constructor(
+    private router: Router,
+    private pwaUpdateService: PwaUpdateService,
+    private pwaInstallService: PwaInstallService
+  ) {}
 
   ngOnInit() {
     this.initializeData();
     this.setTodayAsDefault();
     this.filterAppointments();
+    this.initializePwaFeatures();
 
     // Fechar dropdown quando clicar fora
     document.addEventListener('click', (event) => {
@@ -42,7 +55,23 @@ export class Appointments implements OnInit {
     });
   }
 
-  private initializeData() {
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
+  }
+
+  private initializePwaFeatures() {
+    // Observar estado de instalação
+    const installSub = this.pwaInstallService.isInstallable$.subscribe(installable => {
+      this.showInstallPrompt = installable && !this.isAppInstalled;
+    });
+
+    const installedSub = this.pwaInstallService.isInstalled$.subscribe(installed => {
+      this.isAppInstalled = installed;
+      this.showInstallPrompt = false;
+    });
+
+    this.subscriptions.push(installSub, installedSub);
+  }  private initializeData() {
     // Dados mockados para demonstração
     const today = new Date().toISOString().split('T')[0];
     const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().split('T')[0];
@@ -147,5 +176,21 @@ export class Appointments implements OnInit {
     this.isProfileMenuOpen = false;
     // Implementar logout (limpar sessão, etc.)
     this.router.navigate(['/login']);
+  }
+
+  // PWA Methods
+  async installApp() {
+    const success = await this.pwaInstallService.promptInstall();
+    if (success) {
+      console.log('App instalado com sucesso!');
+    }
+  }
+
+  dismissInstallPrompt() {
+    this.showInstallPrompt = false;
+  }
+
+  checkForUpdates() {
+    this.pwaUpdateService.checkForUpdate();
   }
 }
