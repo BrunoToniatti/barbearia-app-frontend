@@ -557,6 +557,9 @@
 
 // Responsive Design
 @media (max-width: 768px) {
+  body{
+    overflow: hidden;
+  }
   .barber-login {
     min-height: 100vh;
     min-height: calc(100vh - 60px); // Reduz altura para compensar barras do navegador
