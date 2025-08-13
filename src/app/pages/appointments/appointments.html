@@ -1,0 +1,147 @@
+<div class="barber-appointments">
+  <!-- Elegant Background -->
+  <div class="elegant-bg">
+    <div class="gradient-light light-1"></div>
+    <div class="gradient-light light-2"></div>
+    <div class="gradient-light light-3"></div>
+    <div class="vintage-pattern"></div>
+    <div class="floating-elements">
+      <div class="element scissors"></div>
+      <div class="element razor"></div>
+      <div class="element comb"></div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="appointments-header">
+    <div class="header-content">
+      <div class="brand-logo">
+        <span class="logo-text">J&B</span>
+        <div class="logo-ornament">◆</div>
+        <div class="logo-subtitle">Barbear Shop</div>
+      </div>
+      
+      <div class="profile-section">
+        <div class="profile-container" (click)="toggleProfileMenu()">
+          <div class="profile-info">
+            <div class="profile-details">
+              <span class="barber-name">João Barbeiro</span>
+              <span class="barber-role">Profissional</span>
+            </div>
+            <div class="profile-avatar">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
+                   alt="Perfil do Barbeiro" class="avatar-image">
+            </div>
+            <div class="dropdown-arrow" [class.rotated]="isProfileMenuOpen">
+              ▼
+            </div>
+          </div>
+          
+          <!-- Dropdown Menu -->
+          <div class="profile-dropdown" [class.open]="isProfileMenuOpen">
+            <div class="dropdown-item" (click)="openSettings($event)">
+              <span class="dropdown-icon">⚙️</span>
+              <span class="dropdown-text">Configurações</span>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item logout-item" (click)="logout($event)">
+              <span class="dropdown-icon">🚪</span>
+              <span class="dropdown-text">Sair</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="appointments-main">
+    <div class="appointments-container">
+      <div class="appointments-card">
+        <!-- Title -->
+        <div class="appointments-title">
+          <h1>Agendamentos</h1>
+          <p class="subtitle">Gerencie os agendamentos do dia</p>
+        </div>
+
+        <!-- Filter -->
+        <div class="filter-section">
+          <div class="filter-wrapper">
+            <label for="dateFilter" class="filter-label">Data:</label>
+            <input
+              id="dateFilter"
+              type="date"
+              [(ngModel)]="selectedDate"
+              class="filter-input"
+              (change)="filterAppointments()"
+            />
+          </div>
+          <div class="filter-wrapper">
+            <label for="statusFilter" class="filter-label">Status:</label>
+            <select
+              id="statusFilter"
+              [(ngModel)]="selectedStatus"
+              class="filter-select"
+              (change)="filterAppointments()"
+            >
+              <option value="">Todos</option>
+              <option value="pending">Pendente</option>
+              <option value="completed">Concluído</option>
+              <option value="missed">Cliente Faltou</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Appointments List -->
+        <div class="appointments-list">
+          @if (filteredAppointments.length > 0) {
+            @for (appointment of filteredAppointments; track appointment.id) {
+              <div class="appointment-item" [class]="'status-' + appointment.status">
+                <div class="appointment-info">
+                  <div class="appointment-header">
+                    <h3 class="client-name">{{ appointment.clientName }}</h3>
+                    <span class="appointment-time">{{ appointment.time }}</span>
+                  </div>
+                  <div class="appointment-details">
+                    <span class="service">{{ appointment.service }}</span>
+                    <span class="price">R$ {{ appointment.price }}</span>
+                  </div>
+                </div>
+                <div class="appointment-actions">
+                  @if (appointment.status === 'pending') {
+                    <button
+                      class="action-button completed"
+                      (click)="updateAppointmentStatus(appointment.id, 'completed')"
+                    >
+                      ✓ Concluído
+                    </button>
+                    <button
+                      class="action-button missed"
+                      (click)="updateAppointmentStatus(appointment.id, 'missed')"
+                    >
+                      ✗ Faltou
+                    </button>
+                  } @else {
+                    <span class="status-badge" [class]="'badge-' + appointment.status">
+                      @if (appointment.status === 'completed') {
+                        ✓ Concluído
+                      } @else {
+                        ✗ Cliente Faltou
+                      }
+                    </span>
+                  }
+                </div>
+              </div>
+            }
+          } @else {
+            <div class="empty-state">
+              <div class="empty-icon">📅</div>
+              <h3>Nenhum agendamento encontrado</h3>
+              <p>Não há agendamentos para os filtros selecionados.</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

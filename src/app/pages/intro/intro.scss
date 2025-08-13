@@ -1,0 +1,373 @@
+// Barber Intro Styles - Elegant & Classic
+.barber-intro {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1611 0%, #2d2318 40%, #3d2f1f 80%, #1e1a14 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Elegant Background
+.elegant-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.gradient-light {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+  animation: gentleFloat 10s ease-in-out infinite;
+}
+
+.light-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3), transparent 70%);
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.light-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(184, 134, 11, 0.25), transparent 70%);
+  bottom: 20%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+.light-3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(146, 64, 14, 0.2), transparent 70%);
+  top: 50%;
+  left: 50%;
+  animation-delay: 6s;
+}
+
+.vintage-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 75% 75%, rgba(184, 134, 11, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: patternShift 20s linear infinite;
+}
+
+.floating-elements {
+  position: absolute;
+  inset: 0;
+}
+
+.element {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  opacity: 0.1;
+  animation: elementFloat 15s linear infinite;
+}
+
+.scissors {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23D4AF37"><path d="M9.64 7.64c.23-.5.36-1.05.36-1.64 0-2.21-1.79-4-4-4S2 3.79 2 6s1.79 4 4 4c.59 0 1.14-.13 1.64-.36L10 12l-2.36 2.36C7.14 14.13 6.59 14 6 14c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4c0-.59-.13-1.14-.36-1.64L12 14l7 7h3v-1L9.64 7.64zM6 8c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm0 12c-1.1 0-2-.89-2-2s.9-2 2-2 2 .89 2 2-.9 2-2 2zm6-7.5c-.28 0-.5-.22-.5-.5s.22-.5.5-.5.5.22.5.5-.22.5-.5.5zM19 3l-6 6 2 2 7-7V3z"/></svg>') no-repeat center;
+  background-size: contain;
+  top: 20%;
+  left: 15%;
+  animation-duration: 18s;
+}
+
+.razor {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23B8860B"><path d="M22,7V5A1,1 0 0,0 21,4H3A1,1 0 0,0 2,5V7A1,1 0 0,0 3,8H21A1,1 0 0,0 22,7M2,10V19A1,1 0 0,0 3,20H21A1,1 0 0,0 22,19V10A1,1 0 0,0 21,9H3A1,1 0 0,0 2,10Z"/></svg>') no-repeat center;
+  background-size: contain;
+  bottom: 30%;
+  right: 20%;
+  animation-duration: 16s;
+}
+
+.comb {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23CD853F"><path d="M8,2V4H6V2H8M10,2V8H8V10H6V8H4V10H2V8H4V2H6V4H8V2H10M12,2V4H10V2H12M14,2V8H12V10H10V8H8V10H6V8H8V2H10V4H12V2H14M16,2V4H14V2H16M18,2V8H16V10H14V8H12V10H10V8H12V2H14V4H16V2H18M20,2V4H18V2H20M22,2V8H20V10H18V8H16V10H14V8H16V2H18V4H20V2H22Z"/></svg>') no-repeat center;
+  background-size: contain;
+  top: 60%;
+  left: 70%;
+  animation-duration: 20s;
+}
+
+.brush {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23A0522D"><path d="M20,10V8H4V10L6,12V22H8V12L10,10H14L16,12V22H18V12L20,10M12,2A2,2 0 0,1 14,4V6H10V4A2,2 0 0,1 12,2Z"/></svg>') no-repeat center;
+  background-size: contain;
+  bottom: 60%;
+  left: 80%;
+  animation-duration: 14s;
+}
+
+// Main Content
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.brand-container {
+  margin-bottom: 60px;
+}
+
+// Elegant Logo
+.elegant-logo {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.logo-text {
+  display: block;
+  font-size: 5rem;
+  font-weight: 900;
+  background: linear-gradient(145deg, #D4AF37, #F4D03F, #B8860B);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow:
+    0 0 30px rgba(212, 175, 55, 0.6),
+    0 0 60px rgba(184, 134, 11, 0.4);
+  animation: logoGlow 3s ease-in-out infinite alternate;
+  letter-spacing: 0.2em;
+  font-family: var(--font-brand);
+}
+
+.logo-ornament {
+  color: #D4AF37;
+  font-size: 1.5rem;
+  margin-top: 10px;
+  animation: ornamentSpin 8s linear infinite;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
+}
+
+// Brand Name
+.brand-name {
+  margin-bottom: 30px;
+}
+
+.company {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #F5F5DC;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.5s forwards;
+  font-family: var(--font-primary);
+}
+
+// Tagline
+.tagline-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.tagline-line {
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  opacity: 0;
+  animation: lineExpand 1s ease-out 1s forwards;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: rgba(245, 245, 220, 0.9);
+  font-weight: 400;
+  font-family: var(--font-heading);
+  letter-spacing: 0.05em;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 1.2s forwards;
+  font-style: italic;
+}
+
+// Loading Section
+.loading-section {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 1.5s forwards;
+}
+
+.loading-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.loading-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #D4AF37;
+  animation: dotPulse 1.5s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+.loading-dots span:nth-child(2) { animation-delay: 0.3s; }
+.loading-dots span:nth-child(3) { animation-delay: 0.6s; }
+
+.loading-text {
+  font-size: 0.9rem;
+  color: rgba(245, 245, 220, 0.7);
+  margin: 0 0 2rem 0;
+  letter-spacing: 0.1em;
+  font-weight: 300;
+  font-family: var(--font-primary);
+}
+
+// Botão de Acesso
+.access-button-container {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 2s forwards;
+}
+
+.access-button {
+  position: relative;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #D4AF37, #B8860B);
+  border: 2px solid #F4D03F;
+  border-radius: 12px;
+  color: #1a1611;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 8px 25px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  &:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: linear-gradient(135deg, #F4D03F, #D4AF37);
+    box-shadow:
+      0 12px 35px rgba(212, 175, 55, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: #D4AF37;
+  }
+
+  &:active {
+    transform: translateY(-1px) scale(1.02);
+    transition: all 0.1s ease;
+  }
+}
+
+.button-text {
+  position: relative;
+  z-index: 2;
+}
+
+.button-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+  z-index: 1;
+}
+
+.access-button:hover .button-glow {
+  left: 100%;
+}
+
+// Vintage Frame
+.vintage-frame {
+  position: absolute;
+  inset: 20px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 4;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    border-radius: 15px;
+  }
+}
+
+// Animations
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-30px) rotate(2deg); }
+}
+
+@keyframes patternShift {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+
+@keyframes elementFloat {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.1; }
+  90% { opacity: 0.1; }
+  100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes logoGlow {
+  0% { filter: brightness(1) saturate(1); }
+  100% { filter: brightness(1.3) saturate(1.2); }
+}
+
+@keyframes ornamentSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes lineExpand {
+  0% { transform: scaleX(0); opacity: 0; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 1; }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .logo-text {
+    font-size: 3.5rem;
+  }
+
+  .company {
+    font-size: 1.4rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .tagline-line {
+    width: 50px;
+  }
+
+  .vintage-frame {
+    inset: 10px;
+  }
+}

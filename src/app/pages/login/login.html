@@ -1,0 +1,99 @@
+<div class="barber-login">
+  <!-- Elegant Background -->
+  <div class="elegant-bg">
+    <div class="gradient-light light-1"></div>
+    <div class="gradient-light light-2"></div>
+    <div class="gradient-light light-3"></div>
+    <div class="vintage-pattern"></div>
+    <div class="floating-elements">
+      <div class="element scissors"></div>
+      <div class="element razor"></div>
+      <div class="element comb"></div>
+    </div>
+  </div>
+
+  <!-- Login Form -->
+  <div class="login-wrapper">
+    <div class="login-card">
+      <!-- Header -->
+      <div class="login-header">
+        <div class="brand-logo">
+          <span class="logo-text">J&B</span>
+          <div class="logo-ornament">◆</div>
+          <div class="logo-subtitle">Barbear Shop</div>
+        </div>
+        <h1 class="login-title">Bem-vindo de volta</h1>
+        <p class="login-subtitle">Faça login para acessar seu painel</p>
+      </div>
+
+      <!-- Form -->
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <div class="input-wrapper">
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              class="form-input"
+              [class.error]="getFieldError('email')"
+              placeholder="seu@email.com"
+            />
+            <div class="input-border"></div>
+          </div>
+          @if (getFieldError('email')) {
+            <div class="error-message">
+              {{ getFieldError('email') }}
+            </div>
+          }
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password" class="form-label">Senha</label>
+          <div class="input-wrapper">
+            <input
+              id="password"
+              type="password"
+              formControlName="password"
+              class="form-input"
+              autocomplete="new-password"
+              [class.error]="getFieldError('password')"
+              placeholder="••••••••"
+            />
+            <div class="input-border"></div>
+          </div>
+          @if (getFieldError('password')) {
+            <div class="error-message">
+              {{ getFieldError('password') }}
+            </div>
+          }
+        </div>
+
+        <!-- Forgot Password -->
+        <div class="form-options">
+          <a href="#" class="forgot-link">Esqueceu a senha?</a>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="login-button"
+          [disabled]="!loginForm.valid"
+        >
+          <span class="button-text">Entrar</span>
+          <div class="button-shine"></div>
+        </button>
+      </form>
+
+      <!-- Footer -->
+      <div class="login-footer">
+        <p>Não tem uma conta? <a href="#" class="signup-link">Cadastre-se</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vintage Frame -->
+  <div class="vintage-frame"></div>
+</div>
