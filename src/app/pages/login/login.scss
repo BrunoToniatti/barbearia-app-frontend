@@ -557,18 +557,21 @@
 
 // Responsive Design
 @media (max-width: 768px) {
-  body{
-    overflow: hidden;
-  }
   .barber-login {
     min-height: 100vh;
-    min-height: calc(100vh - 60px); // Reduz altura para compensar barras do navegador
-    padding: 20px 10px;
+    height: 100vh;
+    padding: 15px 10px;
+    overflow-y: auto;
   }
 
   .login-wrapper {
     max-width: 320px;
     padding: 10px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
   }
 
   .login-card {
@@ -608,13 +611,22 @@
 
 @media (max-height: 700px) {
   .barber-login {
-    min-height: auto;
-    padding: 15px 10px;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 10px;
+  }
+
+  .login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .login-card {
     padding: 15px;
-    transform: scale(0.95);
+    transform: scale(0.9);
+    margin: auto;
   }
 
   .login-header {

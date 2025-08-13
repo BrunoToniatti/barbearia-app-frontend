@@ -381,15 +381,19 @@
 
 // Para dispositivos com altura muito pequena
 @media (max-height: 700px) {
-  body{
-    overflow: hidden;
-  }
   .barber-intro {
-    min-height: auto;
-    padding: 15px 10px;
+    min-height: 100vh;
+    height: 100vh;
+    padding: 10px;
+    overflow-y: auto;
   }
 
-  .intro-content {
-    transform: scale(0.9);
+  .content-wrapper {
+    transform: scale(0.85);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
   }
 }
