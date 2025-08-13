@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/danilo-frontend"
+  publish = "dist/danilo-frontend/browser"
   command = "npm install --force && npm run build:prod"
 
 [build.environment]

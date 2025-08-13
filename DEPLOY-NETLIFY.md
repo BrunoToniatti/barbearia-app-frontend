@@ -3,13 +3,14 @@
 ## ✅ Configurações que você deve usar na Netlify:
 
 ### 1. Build Settings
-- **Build command:** `npm run build:prod`
+- **Build command:** `npm install --force && npm run build:prod`
 - **Publish directory:** `dist/danilo-frontend`
-- **Node version:** `18`
+- **Node version:** `20`
 
 ### 2. Environment Variables (se necessário)
-- `NODE_VERSION`: `18`
-- `NPM_VERSION`: `9`
+- `NODE_VERSION`: `20`
+- `NPM_VERSION`: `10`
+- `NPM_FLAGS`: `--force`
 
 ### 3. Deploy Settings
 - **Branch to deploy:** `main`
@@ -32,8 +33,8 @@
 2. Adicione: `NPM_FLAGS` com valor `--force`
 
 ### Se der erro de Node version:
-1. Certifique-se que está usando Node 18
-2. O arquivo `.nvmrc` já está configurado
+1. Certifique-se que está usando Node 20
+2. O arquivo `.nvmrc` já está configurado com `20`
 
 ### Se der erro de build command:
 1. Use: `npm install --force && npm run build:prod`
